@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sixth Sense Eradicate Diabetes</title>
+
+    <style media="screen" type="text/css">
+        #button {
+            width: 10em;  height: 3em;
+            background-color: #58D68D;
+        }
+        .error, .errorlist {
+            color: #FF0000;
+        }
+    </style>
+
+    <script type="text/javascript">
+            window.onload = checkGender();
+            function checkGender() {
+                //alert("hi");
+                var gender = document.getElementById('id_sex_0');
+                alert(gender.value);
+                var pcodInput = document.getElementById('id_pcod_long');
+                if (gender.checked) {
+                    pcodInput.required = false;
+                    pcodInput.readOnly = true;
+                }
+            }
+        function makeRequired(id, name)
+        {
+             var radio = document.getElementById(id);
+             var hiddenInput = document.getElementsByClassName(name);
+
+             for (var i = 0; i != hiddenInput.length; i++) {
+                if (radio.value == "F") {
+                    hiddenInput[i].required = true;
+                    hiddenInput[i].readOnly = false;
+                }
+                else if (radio.value == "M") {
+                    hiddenInput[i].required = false;
+                    hiddenInput[i].readOnly = true;
+                }
+                else if (radio.value == "True") {
+                    hiddenInput[i].required = true;
+                }
+                else if (radio.value == "False") {
+                    hiddenInput[i].required = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body style="background-color:#D5F5E3;">
+    <h1 style="text-align:center;font-family:verdana;">Sixth Sense Eradicate Diabetes</h1>
+    <h5 style="text-align:center;color:grey;font-family:verdana;">Team Members: Shefali, Satya Bhama, Satya, Humera, Deepthi K, Deepthi R</h5>
+    <br><br>
+
+    <form action="/eradicate/" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table><br><br>
+        <center><input type="submit" id= "button" class= "button" value="Next"/></center>
+    </form>
+
+</body>
+</html>
